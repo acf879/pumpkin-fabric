@@ -1,3 +1,6 @@
 [submodule "Pumpkin"]
 	path = Pumpkin
 	url = git@github.com:Pumpkin-MC/Pumpkin.git
+[submodule "external/json-c"]
+	path = external/json-c
+	url = git@github.com:json-c/json-c.git
