@@ -42,6 +42,7 @@ add_executable(
 )
 
 add_subdirectory(fabric)
+add_subdirectory(tests)
 
 include_directories(
   QUOTE
