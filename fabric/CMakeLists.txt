@@ -8,8 +8,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_C_COMPILER "gcc")
 
 add_library(
-  ${PROJECT_NAME} SHARED 
-  loader.c
+  ${PROJECT_NAME} SHARED
+  FabricServerLauncher.c
 )
 
 find_package (Java REQUIRED)
