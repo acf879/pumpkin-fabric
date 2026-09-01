@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.20.0)
-project(pumpkinmc-fabric)
+cmake_minimum_required(VERSION 4.0)
+project(pumpkin-fabric-exe)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
@@ -12,37 +12,20 @@ add_compile_options(
     -Wall
     -Wextra
     -Wpedantic
-    -ffunction-sections
-    -fdata-sections
 )
 
-add_link_options(
-    -Wl,--gc-sections
-)
-
-# Debug mode
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0 -fanalyzer -fsanitize=address")
-set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -fsanitize=address")
-
-# Release mode
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -Os -fno-asynchronous-unwind-tables -fno-ident")
-
-# Previous linker flags
-#set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -Wl,--strip-all")
-
-# After adding more
-set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -Wl,--strip-all -Wl,-z,-Wl,--build-id=none")
-
-# Suggested that causes issues with the current binary due to mbedtks dynamic linking
-# set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -static -Wl,--strip-all -Wl,-z,norelro -Wl,--build-id=none")
+add_subdirectory(fabric)
+add_subdirectory(tests)
 
 add_executable(
     ${PROJECT_NAME}
     src/main.c
 )
 
-add_subdirectory(fabric)
-add_subdirectory(tests)
+target_link_libraries(
+  ${PROJECT_NAME}
+  pumpkin-fabric
+)
 
 include_directories(
   QUOTE
