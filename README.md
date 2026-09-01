@@ -13,3 +13,13 @@ of pumpkin that accepts fabric mods
 
 I am planning on using the C-ABI as it is extremely stable and is compatible
 with the majority of programming languages
+
+## Scope
+
+This is going to be designed to get working so that fabric mods can be used and
+then it will be optimizations following. This is to allow for any fabric mod to
+be installed as a drop in similar to how a fabric server works currently but
+with the pumpkin mc server. This will not support standalone mods specifically
+designed for pumpkin. The basic idea for this is:
+
+Pumpkin + patch (hook into C ABI) <- pumpkinmc-fabric (loader) <- fabric jars
