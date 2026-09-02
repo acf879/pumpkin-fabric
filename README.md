@@ -23,3 +23,11 @@ with the pumpkin mc server. This will not support standalone mods specifically
 designed for pumpkin. The basic idea for this is:
 
 Pumpkin + patch (hook into C ABI) <- pumpkinmc-fabric (loader) <- fabric jars
+
+# TODO
+
+- [ ] Add generation of .properties file and setup of variables for later hooks
+- [ ] Expose hooks through C ABI
+- [ ] Use a git patch to implement a hook in rust in pumpkin mc to run the
+        entry point of the mod loader
+- [ ] More ...
