@@ -24,7 +24,7 @@ add_executable(
 
 target_link_libraries(
   ${PROJECT_NAME}
-  pumpkin-fabric
+  fabric
 )
 
 include_directories(

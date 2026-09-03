@@ -13,9 +13,13 @@
 #define _mkdir(x) mkdir(x, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)
 #endif
 
+#define MODS_DIR ("mods/")
+
 // NOTE: will call fabric_server_launcher.init() and then the main function from
 // rust (patch will paste the C ABI code right above the typical pumpkin
 // "start")
+
+// Call before rust main then load rust main
 static int init(void) {
   struct stat fs = {0};
   int ret = 0;
@@ -32,12 +36,6 @@ static int init(void) {
   return 0;
 }
 
-static int deinit(void) {
-  // TODO: Free any allocated memory and do some cleanup
-  return 0;
-}
-
 FabricServerLauncher fabric_server_launcher = {
     .init = init,
-    .deinit = deinit,
 };

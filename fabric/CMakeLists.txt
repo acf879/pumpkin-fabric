@@ -10,6 +10,7 @@ set(CMAKE_C_COMPILER "gcc")
 add_library(
   ${PROJECT_NAME} SHARED
   FabricServerLauncher.c
+  FabricServerModDiscovery.c
 )
 
 find_package (Java REQUIRED)

@@ -7,11 +7,8 @@ extern "C" {
 
 #include <stdint.h>
 
-#define MODS_DIR ("mods/")
-
 typedef struct {
   int (*init)(void);
-  int (*deinit)(void);
 } FabricServerLauncher;
 
 extern FabricServerLauncher fabric_server_launcher;
